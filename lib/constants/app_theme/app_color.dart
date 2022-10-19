@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MyTheme {
   static Color bacgroundcolors = Color(0xffFFEEEE);
-  static Color primarycolorss = Color(0xfffFFF6EA);
+  static Color primarycolorr = Color(0xffFFF6EA);
   static Color primary2 = Color(0xffF7E9D7);
   static Color primary3 = Color(0xffF7E9D7);
   static Color loginbuttonColor = Color(0xff9bbb4c);
@@ -194,4 +194,12 @@ class MyTheme {
             onSurface: Colors.cyan),
         fontFamily: GoogleFonts.poppins().fontFamily,
       );
+}
+
+class AppColors {
+  static const Color mainColor = Color(0xff2031C9);
+  static const Color primaryColor = Color(0xff1f08ab);
+  static const Color whiteColor = Color(0xffFFFFFF);
+  static const Color blackColor = Color(0xff000000);
+  static const Color greyColor = Color(0xff7a7a7a);
 }
