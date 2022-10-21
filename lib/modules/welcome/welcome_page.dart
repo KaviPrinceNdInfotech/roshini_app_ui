@@ -10,7 +10,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: MyTheme.bacgroundcolors,
+      backgroundColor: MyTheme.t1bacgroundcolors1,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Theme.of(context).canvasColor,

@@ -4,6 +4,12 @@ import 'package:flutter/painting.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyTheme {
+  static Color t1bacgroundcolors1 = Color(0xffECFCFF);
+  static Color t1navbar1 = Color(0xffB2FCFF);
+  static Color t1containercolor = Color(0xff5EDFFF);
+  static Color t1Iconcolor = Color(0xff3E64FF);
+
+  ///
   static Color bacgroundcolors = Color(0xffFFEEEE);
   static Color primarycolorr = Color(0xffFFF6EA);
   static Color primary2 = Color(0xffF7E9D7);

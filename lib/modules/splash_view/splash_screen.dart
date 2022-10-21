@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
+import 'package:roshini/constants/app_theme/app_color.dart';
 
 import '../../controllers/splash_controller/splash_controllers.dart';
 
@@ -13,6 +14,7 @@ class SplashScreen extends GetView<SplashController> {
   Widget build(BuildContext context) {
     Get.put(SplashController());
     return Scaffold(
+      backgroundColor: MyTheme.t1navbar1,
       body: GetBuilder<SplashController>(
         init: SplashController(),
         builder: (controller) {
@@ -24,8 +26,8 @@ class SplashScreen extends GetView<SplashController> {
                 children: <Widget>[
                   Image.asset(
                     'lib/assets/images/roshini_logo_dummy.png',
-                    width: controller.animation.value * 200,
-                    height: controller.animation.value * 200,
+                    width: controller.animation.value * 250,
+                    height: controller.animation.value * 250,
                   ),
                 ],
               ),

@@ -30,16 +30,18 @@ class CustomTextField extends StatelessWidget {
       width: width,
       margin: const EdgeInsets.symmetric(horizontal: 20.0),
       decoration: BoxDecoration(
-        color: AppColors.whiteColor,
+        color: MyTheme.t1bacgroundcolors1,
+        //AppColors.whiteColor,
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: TextFormField(
         style: GoogleFonts.poppins(
-          fontSize: 14.0,
-          fontWeight: FontWeight.w400,
+          fontSize: 15.0,
+          fontWeight: FontWeight.w500,
         ),
+        cursorHeight: height * 0.02,
         obscureText: obscureText,
-        cursorColor: AppColors.mainColor,
+        cursorColor: MyTheme.t1Iconcolor,
         controller: controller,
         keyboardType: keyboardType,
         decoration: InputDecoration(
@@ -48,6 +50,7 @@ class CustomTextField extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Image.asset(
               prefixIconPath,
+              color: MyTheme.t1Iconcolor,
               height: 10,
               width: 10,
             ),

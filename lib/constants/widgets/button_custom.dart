@@ -16,7 +16,7 @@ class CustomButton extends StatelessWidget {
     required this.btnText,
     this.btnColor = AppColors.primaryColor,
     this.btnDataRow,
-    this.onPrimaryColor = AppColors.blackColor,
+    this.onPrimaryColor = AppColors.whiteColor,
   }) : super(key: key);
 
   @override
@@ -28,8 +28,8 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
-          primary: MyTheme.primarycolorr,
-          onPrimary: onPrimaryColor,
+          foregroundColor: onPrimaryColor,
+          backgroundColor: MyTheme.t1containercolor,
           minimumSize: Size(width, height * 0.065),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
