@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roshini/constants/app_theme/app_color.dart';
 
 class OtpInput extends StatelessWidget {
   const OtpInput(
@@ -12,37 +13,52 @@ class OtpInput extends StatelessWidget {
   final String? Function(String?) validator;
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.symmetric(horizontal: size.width * 0.03),
       child: SizedBox(
-        height: 60,
-        width: 150,
+        height: size.height * 0.09,
+        width: size.width * 0.18,
         child: PhysicalModel(
           color: Color(0xfff5f5f5),
-          shape: BoxShape.circle,
-          elevation: 2,
+          //shape: BoxShape.circle,
+          borderRadius: BorderRadius.circular(10),
+          elevation: 3,
           child: Container(
-            height: 120,
-            width: 180,
+            height: size.height * 0.06,
+            width: size.width * 0.15,
+            //height: 120,
+            //width: 180,
             decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
               border: Border.all(color: Color(0xfff5f5f5), width: 0),
-              shape: BoxShape.circle,
-              color: Color(0xfff5f5f5),
+              //shape: BoxShape.circle,
+              color: MyTheme.t1bacgroundcolors1,
+              //color: Color(0xfff5f5f5),
 
               //borderRadius: BorderRadius.circular(5)
             ),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.symmetric(vertical: size.height * 0.014),
               child: TextFormField(
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                  color: MyTheme.t1Iconcolor,
+                ),
+                cursorColor: MyTheme.t1Iconcolor,
+                cursorWidth: 3,
+                cursorHeight: 27,
                 decoration: InputDecoration(
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                  contentPadding: EdgeInsets.symmetric(
+                      vertical: size.height * 0.00,
+                      horizontal: size.width * 0.02),
                   border: InputBorder.none,
                   focusedBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
                   errorBorder: InputBorder.none,
-                  hintText: '',
-                  hintStyle: TextStyle(fontSize: 20.0, color: Colors.grey),
+                  hintText: '0',
+                  hintStyle: TextStyle(fontSize: 25.0, color: Colors.grey),
                   counterText: '',
                   focusColor: Colors.black,
                 ),
