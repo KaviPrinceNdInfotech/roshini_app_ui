@@ -73,16 +73,18 @@ class OTPPhone extends StatelessWidget {
                   ),
 
                   Text(
-                    'Enter Your OTP',
-                    style: TextStyle(
+                    'Please Enter Your OTP',
+                    style: GoogleFonts.alegreyaSc(
                       fontWeight: FontWeight.w700,
+                      color: MyTheme.t1Iconcolor,
+                      fontSize: size.width * 0.05,
                     ),
                   ),
 
                   //.pOnly(left: 37.w, bottom: 4.h),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        vertical: size.height * 0.08,
+                        vertical: size.height * 0.06,
                         horizontal: size.width * 0.01),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -109,11 +111,11 @@ class OTPPhone extends StatelessWidget {
                           },
                           child: Text(
                             'RESEND OTP ?',
-                            style: GoogleFonts.poppins(
-                                color: Colors.black,
+                            style: GoogleFonts.alegreyaSc(
+                                color: MyTheme.t1Iconcolor,
                                 letterSpacing: 0,
                                 fontWeight: FontWeight.w700,
-                                fontSize: 10),
+                                fontSize: size.width * 0.03),
                           ),
                         ),
 

@@ -44,37 +44,44 @@ class LoginScreen extends GetView<LoginController> {
 
                 /// Don't Have an Account text
                 SizedBox(height: height * 0.05),
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: 'Please Verify your Number.',
-                        //'Don\'t have an account?',
-                        style: GoogleFonts.poppins(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w500,
-                            color: MyTheme.containercolor7
-                            //AppColors.whiteColor,
-                            ),
-                      ),
-                      // const WidgetSpan(child: SizedBox(width: 10.0)),
-                      // TextSpan(
-                      //   text: 'SIGN UP',
-                      //   style: GoogleFonts.poppins(
-                      //       fontSize: 12.0,
-                      //       fontWeight: FontWeight.w500,
-                      //       color: MyTheme.containercolor7
-                      //       //AppColors.whiteColor,
-                      //       ),
-                      //   recognizer: TapGestureRecognizer()
-                      //     ..onTap = () => Get.to(
-                      //           Container(),
-                      //           //const SignupScreen(),
-                      //         ),
-                      // ),
-                    ],
-                  ),
+                Text(
+                  "Please Verify Your Phone!",
+                  style: GoogleFonts.alegreyaSc(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: MyTheme.t1Iconcolor),
                 ),
+                // RichText(
+                //   text: TextSpan(
+                //     children: [
+                //       TextSpan(
+                //         text: 'Please Verify your Number.',
+                //         //'Don\'t have an account?',
+                //         style: GoogleFonts.poppins(
+                //             fontSize: 14.0,
+                //             fontWeight: FontWeight.w500,
+                //             color: MyTheme.containercolor7
+                //             //AppColors.whiteColor,
+                //             ),
+                //       ),
+                //       // const WidgetSpan(child: SizedBox(width: 10.0)),
+                //       // TextSpan(
+                //       //   text: 'SIGN UP',
+                //       //   style: GoogleFonts.poppins(
+                //       //       fontSize: 12.0,
+                //       //       fontWeight: FontWeight.w500,
+                //       //       color: MyTheme.containercolor7
+                //       //       //AppColors.whiteColor,
+                //       //       ),
+                //       //   recognizer: TapGestureRecognizer()
+                //       //     ..onTap = () => Get.to(
+                //       //           Container(),
+                //       //           //const SignupScreen(),
+                //       //         ),
+                //       // ),
+                //     ],
+                //   ),
+                // ),
 
                 /// email field
                 SizedBox(height: height * 0.06),

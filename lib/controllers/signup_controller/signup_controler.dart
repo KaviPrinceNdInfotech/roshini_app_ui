@@ -9,16 +9,25 @@ class SignUpController extends GetxController {
 
   late TextEditingController nameController,
       mobileController,
-      addressController;
+      shopnameController,
+      addressController,
+      aadharController,
+      passwordControler;
   var name = '';
   var mobile = '';
+  var shopname = '';
   var address = '';
+  var password = '';
+  var aadhar = '';
   @override
   void onInit() {
     super.onInit();
     nameController = TextEditingController();
     mobileController = TextEditingController();
+    shopnameController = TextEditingController();
     addressController = TextEditingController();
+    aadharController = TextEditingController();
+    passwordControler = TextEditingController();
   }
 
   @override
@@ -30,12 +39,15 @@ class SignUpController extends GetxController {
   void onClose() {
     nameController.dispose();
     mobileController.dispose();
+    shopnameController.dispose();
     addressController.dispose();
+    aadharController.dispose();
+    passwordControler.dispose();
   }
 
   String? validateName(String value) {
     if (value.length < 2) {
-      return "Name must be of 2 characters";
+      return "Name should must be 2 characters";
     }
     return null;
   }
@@ -47,9 +59,30 @@ class SignUpController extends GetxController {
     return null;
   }
 
+  String? validateShopname(String value) {
+    if (value.length < 3) {
+      return "Provide valid ShopName";
+    }
+    return null;
+  }
+
   String? validateAddress(String value) {
-    if (value.length < 6) {
+    if (value.length < 3) {
       return "provide valid address";
+    }
+    return null;
+  }
+
+  String? validateaadharcard(String value) {
+    if (value.length < 12) {
+      return "Provide valid aadhar";
+    }
+    return null;
+  }
+
+  String? validatepassword(String value) {
+    if (value.length < 5) {
+      return "Provide valid password";
     }
     return null;
   }

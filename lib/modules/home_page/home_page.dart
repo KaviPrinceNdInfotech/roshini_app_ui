@@ -5,8 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
 import 'package:flutter_carousel_slider/carousel_slider_indicators.dart';
 import 'package:flutter_carousel_slider/carousel_slider_transforms.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:roshini/constants/app_theme/app_color.dart';
+
+import '../complaint_view/complaint_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -193,47 +197,52 @@ class HomePage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
-                    child: Container(
-                      height: size.height * 0.1,
-                      width: size.width,
-                      decoration: BoxDecoration(
-                        gradient: MyTheme.gradient7,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Center(
-                          child: Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: size.width * 0.03),
-                        child: Row(
-                          children: [
-                            Text(
-                              'Complaint Register',
-                              style: GoogleFonts.abhayaLibre(
-                                  color: Colors.white,
-                                  fontSize: size.height * 0.03,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            Spacer(),
-                            Material(
-                              elevation: 2,
-                              color: Colors.black12,
-                              shadowColor: Colors.grey,
-                              borderRadius: BorderRadius.circular(100),
-                              child: Container(
-                                height: size.height * 0.06,
-                                width: size.width * 0.13,
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            'lib/assets/images/right-arrow.gif'),
-                                        fit: BoxFit.fitWidth)),
-                                // child: Image.asset('lib/assets/images/right-arrow.gif')
-                              ),
-                            ),
-                          ],
+                    child: InkWell(
+                      onTap: () {
+                        Get.to(() => ComplaintPage());
+                      },
+                      child: Container(
+                        height: size.height * 0.1,
+                        width: size.width,
+                        decoration: BoxDecoration(
+                          gradient: MyTheme.gradient7,
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                      )),
+                        child: Center(
+                            child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: size.width * 0.03),
+                          child: Row(
+                            children: [
+                              Text(
+                                'Complaint Register',
+                                style: GoogleFonts.abhayaLibre(
+                                    color: Colors.white,
+                                    fontSize: size.height * 0.03,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              Spacer(),
+                              Material(
+                                elevation: 2,
+                                color: Colors.black12,
+                                shadowColor: Colors.grey,
+                                borderRadius: BorderRadius.circular(100),
+                                child: Container(
+                                  height: size.height * 0.06,
+                                  width: size.width * 0.13,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              'lib/assets/images/right-arrow.gif'),
+                                          fit: BoxFit.fitWidth)),
+                                  // child: Image.asset('lib/assets/images/right-arrow.gif')
+                                ),
+                              ),
+                            ],
+                          ),
+                        )),
+                      ),
                     ),
                   ),
                 ),

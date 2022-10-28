@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:roshini/constants/app_theme/app_color.dart';
 import 'package:roshini/controllers/signup_controller/signup_controler.dart';
 import 'package:roshini/modules/home_page/home_page.dart';
@@ -40,18 +41,22 @@ class _SignUpPageState extends State<SignUpPage> {
               child: Column(
                 children: [
                   Image.asset(
-                    "lib/assets/images/roshini_logo_dummy.png",
-                    height: 100,
+                    "lib/assets/images/JK_Roshinilogo.png",
+                    height: size.height * 0.09,
+                    width: size.width * 0.7,
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   Text(
-                    "Welcome with us!",
-                    style: TextStyle(fontSize: 20, color: Colors.black87),
+                    "SignUp with us!",
+                    style: GoogleFonts.alegreyaSc(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: MyTheme.t1Iconcolor),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
 
                   // TextFormField(
@@ -84,7 +89,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             filled: true,
 
                             fillColor: MyTheme.t1bacgroundcolors1,
-                            hintText: 'Username',
+                            hintText: 'Name',
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 4.0, top: 16.0),
                             focusedBorder: OutlineInputBorder(
@@ -173,8 +178,8 @@ class _SignUpPageState extends State<SignUpPage> {
                                   vertical: size.height * 0.012,
                                   horizontal: size.width * 0.02),
                               child: Image.asset(
-                                'lib/assets/images/pnone4.png',
-                                color: MyTheme.t1Iconcolor,
+                                'lib/assets/images/smartphone.png',
+                                //color: MyTheme.t1Iconcolor,
                                 height: 10,
                                 width: 10,
                               ),
@@ -188,6 +193,68 @@ class _SignUpPageState extends State<SignUpPage> {
                           },
                           validator: (value) {
                             return _signUpController.validatemobile(value!);
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: size.height * 0.03,
+                  ),
+                  Directionality(
+                    textDirection: TextDirection.ltr,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(0.0),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            filled: true,
+
+                            fillColor: MyTheme.t1bacgroundcolors1,
+                            hintText: 'Shoppe name',
+                            contentPadding: const EdgeInsets.only(
+                                left: 14.0, bottom: 4.0, top: 16.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: new BorderSide(color: Colors.green),
+                              borderRadius: new BorderRadius.circular(10),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide:
+                                  new BorderSide(color: Colors.transparent),
+                              borderRadius: new BorderRadius.circular(10.0),
+                            ),
+                            //focusedBorder: InputBorder.none,
+                            //enabledBorder: InputBorder.none,
+                            // errorBorder: InputBorder.none,
+                            // border: InputBorder.none,
+
+                            border: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            // labelText: "Password",
+                            prefixIcon: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: size.height * 0.012,
+                                  horizontal: size.width * 0.02),
+                              child: Image.asset(
+                                'lib/assets/images/store.png',
+                                //color: MyTheme.t1Iconcolor,
+                                height: 10,
+                                width: 10,
+                              ),
+                            ),
+                          ),
+                          keyboardType: TextInputType.name,
+                          //obscureText: true,
+                          controller: _signUpController.shopnameController,
+                          onSaved: (value) {
+                            _signUpController.shopname = value!;
+                          },
+                          validator: (value) {
+                            return _signUpController.validateShopname(value!);
                           },
                         ),
                       ),
@@ -257,6 +324,68 @@ class _SignUpPageState extends State<SignUpPage> {
                   SizedBox(
                     height: size.height * 0.03,
                   ),
+                  Directionality(
+                    textDirection: TextDirection.ltr,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(0.0),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            filled: true,
+
+                            fillColor: MyTheme.t1bacgroundcolors1,
+                            hintText: 'Aadhaar No',
+                            contentPadding: const EdgeInsets.only(
+                                left: 14.0, bottom: 4.0, top: 16.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: new BorderSide(color: Colors.green),
+                              borderRadius: new BorderRadius.circular(10),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide:
+                                  new BorderSide(color: Colors.transparent),
+                              borderRadius: new BorderRadius.circular(10.0),
+                            ),
+                            //focusedBorder: InputBorder.none,
+                            //enabledBorder: InputBorder.none,
+                            // errorBorder: InputBorder.none,
+                            // border: InputBorder.none,
+
+                            border: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            // labelText: "Password",
+                            prefixIcon: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: size.height * 0.012,
+                                  horizontal: size.width * 0.02),
+                              child: Image.asset(
+                                'lib/assets/images/credit-card.png',
+                                //color: MyTheme.t1Iconcolor,
+                                height: 10,
+                                width: 10,
+                              ),
+                            ),
+                          ),
+                          keyboardType: TextInputType.phone,
+                          //obscureText: true,
+                          controller: _signUpController.aadharController,
+                          onSaved: (value) {
+                            _signUpController.aadhar = value!;
+                          },
+                          validator: (value) {
+                            return _signUpController.validateaadharcard(value!);
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: size.height * 0.03,
+                  ),
 
                   Container(
                     width: size.width,
@@ -310,75 +439,139 @@ class _SignUpPageState extends State<SignUpPage> {
                   SizedBox(
                     height: size.height * 0.03,
                   ),
+                  Directionality(
+                    textDirection: TextDirection.ltr,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(0.0),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            filled: true,
 
-                  Container(
-                    height: size.height * 0.06,
-                    decoration: BoxDecoration(
-                        color: MyTheme.t1bacgroundcolors1,
-                        borderRadius: BorderRadius.circular(10)),
-                    //: Colors.red,
-                    child: DropdownButtonFormField<String>(
-                      decoration: InputDecoration(
-                        filled: true,
+                            fillColor: MyTheme.t1bacgroundcolors1,
+                            hintText: 'Password',
+                            contentPadding: const EdgeInsets.only(
+                                left: 14.0, bottom: 4.0, top: 16.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: new BorderSide(color: Colors.green),
+                              borderRadius: new BorderRadius.circular(10),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide:
+                                  new BorderSide(color: Colors.transparent),
+                              borderRadius: new BorderRadius.circular(10.0),
+                            ),
+                            //focusedBorder: InputBorder.none,
+                            //enabledBorder: InputBorder.none,
+                            // errorBorder: InputBorder.none,
+                            // border: InputBorder.none,
 
-                        fillColor: MyTheme.t1bacgroundcolors1,
-                        hintText: 'Address',
-                        contentPadding: const EdgeInsets.only(
-                            left: 14.0, bottom: 4.0, top: 7.0),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: new BorderSide(color: Colors.green),
-                          borderRadius: new BorderRadius.circular(10),
-                        ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: new BorderSide(color: Colors.transparent),
-                          borderRadius: new BorderRadius.circular(10.0),
-                        ),
-                        //focusedBorder: InputBorder.none,
-                        // enabledBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        border: InputBorder.none,
-
-                        // border: OutlineInputBorder(
-                        //   borderSide:
-                        //   BorderSide(color: Colors.red, width: 2.0),
-                        //   borderRadius: BorderRadius.circular(10),
-                        // ),
-                        // labelText: "Password",
-                        prefixIcon: Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: size.height * 0.01,
-                              horizontal: size.width * 0.02),
-                          child: Image.asset(
-                            'lib/assets/images/home.png',
-                            color: MyTheme.t1Iconcolor,
-                            height: 10,
-                            width: 10,
+                            border: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            // labelText: "Password",
+                            prefixIcon: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: size.height * 0.012,
+                                  horizontal: size.width * 0.02),
+                              child: Image.asset(
+                                'lib/assets/images/lock.png',
+                                color: MyTheme.t1Iconcolor,
+                                height: 10,
+                                width: 10,
+                              ),
+                            ),
                           ),
+                          keyboardType: TextInputType.visiblePassword,
+                          //obscureText: true,
+                          controller: _signUpController.passwordControler,
+                          onSaved: (value) {
+                            _signUpController.password = value!;
+                          },
+                          validator: (value) {
+                            return _signUpController.validatepassword(value!);
+                          },
                         ),
                       ),
-
-                      value: dropdownValue,
-                      icon: const Icon(Icons.arrow_downward),
-                      elevation: 16,
-                      style: const TextStyle(color: Colors.deepPurple),
-                      // underline: Container(
-                      //   height: 2,
-                      //   color: Colors.deepPurpleAccent,
-                      // ),
-                      onChanged: (String? value) {
-                        // This is called when the user selects an item.
-                        setState(() {
-                          dropdownValue = value!;
-                        });
-                      },
-                      items: list.map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
                     ),
                   ),
+
+                  ///TODO: here drop down............
+
+                  // SizedBox(
+                  //   height: size.height * 0.03,
+                  // ),
+                  //
+                  // Container(
+                  //   height: size.height * 0.06,
+                  //   decoration: BoxDecoration(
+                  //       color: MyTheme.t1bacgroundcolors1,
+                  //       borderRadius: BorderRadius.circular(10)),
+                  //   //: Colors.red,
+                  //   child: DropdownButtonFormField<String>(
+                  //     decoration: InputDecoration(
+                  //       filled: true,
+                  //
+                  //       fillColor: MyTheme.t1bacgroundcolors1,
+                  //       hintText: 'Address',
+                  //       contentPadding: const EdgeInsets.only(
+                  //           left: 14.0, bottom: 4.0, top: 7.0),
+                  //       focusedBorder: OutlineInputBorder(
+                  //         borderSide: new BorderSide(color: Colors.green),
+                  //         borderRadius: new BorderRadius.circular(10),
+                  //       ),
+                  //       enabledBorder: UnderlineInputBorder(
+                  //         borderSide: new BorderSide(color: Colors.transparent),
+                  //         borderRadius: new BorderRadius.circular(10.0),
+                  //       ),
+                  //       //focusedBorder: InputBorder.none,
+                  //       // enabledBorder: InputBorder.none,
+                  //       errorBorder: InputBorder.none,
+                  //       border: InputBorder.none,
+                  //
+                  //       // border: OutlineInputBorder(
+                  //       //   borderSide:
+                  //       //   BorderSide(color: Colors.red, width: 2.0),
+                  //       //   borderRadius: BorderRadius.circular(10),
+                  //       // ),
+                  //       // labelText: "Password",
+                  //       prefixIcon: Padding(
+                  //         padding: EdgeInsets.symmetric(
+                  //             vertical: size.height * 0.01,
+                  //             horizontal: size.width * 0.02),
+                  //         child: Image.asset(
+                  //           'lib/assets/images/home.png',
+                  //           color: MyTheme.t1Iconcolor,
+                  //           height: 10,
+                  //           width: 10,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //
+                  //     value: dropdownValue,
+                  //     icon: const Icon(Icons.arrow_downward),
+                  //     elevation: 16,
+                  //     style: const TextStyle(color: Colors.deepPurple),
+                  //     // underline: Container(
+                  //     //   height: 2,
+                  //     //   color: Colors.deepPurpleAccent,
+                  //     // ),
+                  //     onChanged: (String? value) {
+                  //       // This is called when the user selects an item.
+                  //       setState(() {
+                  //         dropdownValue = value!;
+                  //       });
+                  //     },
+                  //     items: list.map<DropdownMenuItem<String>>((String value) {
+                  //       return DropdownMenuItem<String>(
+                  //         value: value,
+                  //         child: Text(value),
+                  //       );
+                  //     }).toList(),
+                  //   ),
+                  // ),
 
                   // Obx(
                   //       () => DropdownButtonHideUnderline(
