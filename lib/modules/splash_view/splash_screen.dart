@@ -25,9 +25,10 @@ class SplashScreen extends GetView<SplashController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Image.asset(
-                    'lib/assets/images/roshini_logo_dummy.png',
-                    width: controller.animation.value * 250,
-                    height: controller.animation.value * 250,
+                    'lib/assets/images/JK_Roshini1logofull.png',
+                    //'lib/assets/images/roshini_logo_dummy.png',
+                    width: controller.animation.value * 320,
+                    height: controller.animation.value * 450,
                   ),
                 ],
               ),
