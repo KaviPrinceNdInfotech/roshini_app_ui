@@ -9,6 +9,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:roshini/constants/app_theme/app_color.dart';
+import 'package:roshini/modules/add_technician/add_technicians.dart';
+import 'package:roshini/modules/complain_list/complain_lists.dart';
 
 import '../complaint_view/complaint_page.dart';
 
@@ -125,9 +127,10 @@ class HomePage extends StatelessWidget {
           //   },
           // ),
           title: Image.asset(
-            'lib/assets/images/JK_Roshini1logofull.png',
-            height: size.height * 0.3,
-            width: size.width * 0.4,
+            'lib/assets/images/JK_ROSHINI_png.png',
+            //'lib/assets/images/JK_Roshini1logofull.png',
+            height: size.height * 0.4,
+            width: size.width * 0.3,
           )
           // Text(
           //   'Roshini',
@@ -269,7 +272,7 @@ class HomePage extends StatelessWidget {
                               //Get.to(() => WomenPage());
                               //Get.to(() => WaterTracking());
                             } else if (index == 1) {
-                              // Get.to(() => AmcPage());
+                              Get.to(() => AddTechnician());
                             } else if (index == 2) {
                               //Get.to(() => PaymentOptions());
                               //Get.to(() => HotDeals());
@@ -277,6 +280,7 @@ class HomePage extends StatelessWidget {
                             } else if (index == 3) {
                               // whatsAppOpen();
                               // _launchWhatsapp();
+                              Get.to(() => ComplainList());
 
                               ///Todo this is showing dark and white mode
                               ///
@@ -603,6 +607,7 @@ class HomePage extends StatelessWidget {
 }
 
 class Mycrusial extends StatelessWidget {
+  final _sliderKey = GlobalKey();
   Mycrusial({Key? key}) : super(key: key);
 
   final List<Color> colors = [
@@ -626,7 +631,7 @@ class Mycrusial extends StatelessWidget {
   ];
   final bool _isPlaying = true;
 
-  get _sliderKey => null;
+  //get _sliderKey => null;
 
   @override
   Widget build(BuildContext context) {
@@ -634,53 +639,50 @@ class Mycrusial extends StatelessWidget {
     return Scaffold(
       body: SizedBox(
         height: size.height * 0.25,
-        child: ListView(
-          children: <Widget>[
-            Container(
-              height: size.height * 0.25,
-              child: CarouselSlider.builder(
-                //scrollPhysics: NeverScrollableScrollPhysics(),
-                key: _sliderKey,
-                unlimitedMode: true,
-                autoSliderTransitionTime: Duration(seconds: 1),
-                //autoSliderDelay: Duration(seconds: 5),
-                slideBuilder: (index) {
-                  return Container(
-                    height: 270,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: NetworkImage(images[index]), fit: BoxFit.fill),
-                    ),
-                    //color: colors[index],
-                    // child: Text(
-                    //   letters[index],
-                    //   style: TextStyle(fontSize: 200, color: Colors.white),
-                    // ),
-                  );
-                },
-                slideTransform: DefaultTransform(),
-                slideIndicator: CircularSlideIndicator(
-                  indicatorBorderWidth: 2,
-                  indicatorRadius: 4,
-                  itemSpacing: 15,
-                  currentIndicatorColor: MyTheme.t1Iconcolor,
-                  padding: EdgeInsets.only(bottom: 3),
+        child: Container(
+          height: size.height * 0.25,
+          child: CarouselSlider.builder(
+            //scrollPhysics: NeverScrollableScrollPhysics(),
+            key: _sliderKey,
+            unlimitedMode: true,
+            autoSliderTransitionTime: Duration(seconds: 1),
+            //autoSliderDelay: Duration(seconds: 5),
+            slideBuilder: (index) {
+              return Container(
+                height: size.height * 38,
+                width: size.width,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: NetworkImage(images[index]), fit: BoxFit.fill),
                 ),
-                itemCount: images.length,
-                enableAutoSlider: true,
-              ),
+                //color: colors[index],
+                // child: Text(
+                //   letters[index],
+                //   style: TextStyle(fontSize: 200, color: Colors.white),
+                // ),
+              );
+            },
+            slideTransform: DefaultTransform(),
+            slideIndicator: CircularSlideIndicator(
+              indicatorBorderWidth: 2,
+              indicatorRadius: 4,
+              itemSpacing: 15,
+              currentIndicatorColor: MyTheme.t1Iconcolor,
+              padding: EdgeInsets.only(bottom: 3),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 32),
-              child: Align(
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(minWidth: 240, maxWidth: 600),
-                ),
-              ),
-            ),
-          ],
+            itemCount: images.length,
+            enableAutoSlider: true,
+          ),
         ),
+        // Padding(
+        //   padding: const EdgeInsets.symmetric(vertical: 32),
+        //   child: Align(
+        //     child: ConstrainedBox(
+        //       constraints: BoxConstraints(minWidth: 240, maxWidth: 600),
+        //     ),
+        //   ),
+        // ),
       ),
     );
   }

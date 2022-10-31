@@ -40,13 +40,17 @@ class _SignUpPageState extends State<SignUpPage> {
               autovalidateMode: AutovalidateMode.onUserInteraction,
               child: Column(
                 children: [
-                  Image.asset(
-                    "lib/assets/images/JK_Roshinilogo.png",
-                    height: size.height * 0.09,
-                    width: size.width * 0.7,
+                  Container(
+                    height: size.height * 0.136,
+                    width: size.width * 0.6,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                                'lib/assets/images/JK_ROSHINI_png.png'),
+                            fit: BoxFit.fitWidth)),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 00,
                   ),
                   Text(
                     "SignUp with us!",
@@ -56,7 +60,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         color: MyTheme.t1Iconcolor),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 0,
                   ),
 
                   // TextFormField(
@@ -77,7 +81,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   //   },
                   // ),
                   SizedBox(
-                    height: size.height * 0.03,
+                    height: size.height * 0.02,
                   ),
                   Directionality(
                     textDirection: TextDirection.ltr,
