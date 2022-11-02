@@ -7,6 +7,15 @@ class SignUpController extends GetxController {
   var selectedDrowpdown = 'abc';
   List dropdownText = ['abc', 'def', 'ghi'];
 
+  ///this is radio button function...
+  var selectedService = ''.obs;
+
+  onChangeService(String service) {
+    selectedService.value = service;
+  }
+
+  ///till here radio button........
+
   late TextEditingController nameController,
       mobileController,
       shopnameController,

@@ -108,6 +108,7 @@ class OTPPhone extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             Get.to(() => LoginScreen());
+                            //Get.to(page)
                           },
                           child: Text(
                             'RESEND OTP ?',

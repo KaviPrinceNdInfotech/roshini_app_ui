@@ -1,47 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:roshini/constants/app_theme/app_color.dart';
+import 'package:roshini/controllers/login_password_controller/login_password_controller.dart';
+import 'package:roshini/modules/forgot_section/forgot_with_phonee.dart';
 
-import '../../controllers/add_tecnician_controller/add_technicians_controller.dart';
+class LoginPasswordPage extends StatelessWidget {
+  LoginPasswordPage({Key? key}) : super(key: key);
 
-class AddTechnician extends StatelessWidget {
-  AddTechnician({Key? key}) : super(key: key);
-
-  AddtechnicianController _addtechnicianController =
-      Get.put(AddtechnicianController());
+  LoginpasswordController _loginpasswordController =
+      Get.put(LoginpasswordController());
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     Size size = MediaQuery.of(context).size;
-    return Form(
-      key: _addtechnicianController.addtechnicianformkey,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      child: Scaffold(
+    return Scaffold(
+      backgroundColor: MyTheme.t1navbar1,
+      appBar: AppBar(
+        elevation: 0,
         backgroundColor: MyTheme.t1navbar1,
-        appBar: AppBar(
-          backgroundColor: MyTheme.t1navbar1,
-          elevation: 0,
-        ),
-        body: SafeArea(
+      ),
+      body: SafeArea(
+        child: Container(
+          margin: EdgeInsets.only(top: 5, left: 16, right: 16),
+          width: context.width,
+          height: context.height,
           child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: size.width * 0.04, vertical: size.height * 0.02),
+            child: Form(
+              key: _loginpasswordController.loginpasswordformkey,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
               child: Column(
                 children: [
                   Image.asset(
                     'lib/assets/images/JK_ROSHINI_png.png',
                     //"lib/assets/images/JK_Roshinilogo.png",
-                    height: size.height * 0.14,
-                    width: size.width * 0.9,
+                    height: size.height * 0.15,
+                    width: size.width * 0.5, fit: BoxFit.fitWidth,
                   ),
                   SizedBox(
                     height: 00,
                   ),
                   Text(
-                    "Register Your Complain!",
+                    "Login With Us!",
                     style: GoogleFonts.alegreyaSc(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -50,68 +52,24 @@ class AddTechnician extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  SizedBox(
-                    height: size.height * 0.03,
-                  ),
-                  Directionality(
-                    textDirection: TextDirection.ltr,
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(0.0),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            filled: true,
 
-                            fillColor: MyTheme.t1bacgroundcolors1,
-                            hintText: 'Name',
-                            contentPadding: const EdgeInsets.only(
-                                left: 14.0, bottom: 4.0, top: 16.0),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.green),
-                              borderRadius: new BorderRadius.circular(10),
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide:
-                                  new BorderSide(color: Colors.transparent),
-                              borderRadius: new BorderRadius.circular(10.0),
-                            ),
-                            //focusedBorder: InputBorder.none,
-                            //enabledBorder: InputBorder.none,
-                            // errorBorder: InputBorder.none,
-                            // border: InputBorder.none,
-
-                            border: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            // labelText: "Password",
-                            prefixIcon: Padding(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: size.height * 0.012,
-                                  horizontal: size.width * 0.02),
-                              child: Image.asset(
-                                'lib/assets/images/profile.png',
-                                color: MyTheme.t1Iconcolor,
-                                height: 10,
-                                width: 10,
-                              ),
-                            ),
-                          ),
-                          keyboardType: TextInputType.visiblePassword,
-                          //obscureText: true,
-                          controller: _addtechnicianController.nameController,
-                          onSaved: (value) {
-                            _addtechnicianController.name = value!;
-                          },
-                          validator: (value) {
-                            return _addtechnicianController
-                                .validateName(value!);
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
+                  // TextFormField(
+                  //   decoration: InputDecoration(
+                  //     border: OutlineInputBorder(
+                  //       borderRadius: BorderRadius.circular(10),
+                  //     ),
+                  //     labelText: "Email",
+                  //     prefixIcon: Icon(Icons.email),
+                  //   ),
+                  //   keyboardType: TextInputType.emailAddress,
+                  //   controller: controller.emailController,
+                  //   onSaved: (value) {
+                  //     controller.email = value!;
+                  //   },
+                  //   validator: (value) {
+                  //     return controller.validateEmail(value!);
+                  //   },
+                  // ),
                   SizedBox(
                     height: size.height * 0.03,
                   ),
@@ -154,20 +112,21 @@ class AddTechnician extends StatelessWidget {
                                   horizontal: size.width * 0.02),
                               child: Image.asset(
                                 'lib/assets/images/smartphone.png',
-                                //color: MyTheme.t1Iconcolor,
+                                // 'lib/assets/images/profile.png',
+                                // color: MyTheme.t1Iconcolor,
                                 height: 10,
                                 width: 10,
                               ),
                             ),
                           ),
-                          keyboardType: TextInputType.phone,
+                          keyboardType: TextInputType.visiblePassword,
                           //obscureText: true,
-                          controller: _addtechnicianController.mobileController,
+                          controller: _loginpasswordController.mobileController,
                           onSaved: (value) {
-                            _addtechnicianController.mobile = value!;
+                            _loginpasswordController.mobile = value!;
                           },
                           validator: (value) {
-                            return _addtechnicianController.validPhone(value!);
+                            return _loginpasswordController.validPhone(value!);
                           },
                         ),
                       ),
@@ -178,64 +137,88 @@ class AddTechnician extends StatelessWidget {
                   ),
                   Directionality(
                     textDirection: TextDirection.ltr,
-                    child: Padding(
-                      padding: const EdgeInsets.all(0.0),
-                      child: TextFormField(
-                        //maxLines: 5,
-                        decoration: InputDecoration(
-                          filled: true,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(0.0),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            filled: true,
 
-                          fillColor: MyTheme.t1bacgroundcolors1,
-                          hintText: 'Address',
-                          contentPadding: const EdgeInsets.only(
-                              left: 14.0, bottom: 4.0, top: 16.0),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: new BorderSide(color: Colors.green),
-                            borderRadius: new BorderRadius.circular(10),
-                          ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide:
-                                new BorderSide(color: Colors.transparent),
-                            borderRadius: new BorderRadius.circular(10.0),
-                          ),
-                          //focusedBorder: InputBorder.none,
-                          //enabledBorder: InputBorder.none,
-                          // errorBorder: InputBorder.none,
-                          // border: InputBorder.none,
+                            fillColor: MyTheme.t1bacgroundcolors1,
+                            hintText: 'Password',
+                            contentPadding: const EdgeInsets.only(
+                                left: 14.0, bottom: 4.0, top: 16.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: new BorderSide(color: Colors.green),
+                              borderRadius: new BorderRadius.circular(10),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide:
+                                  new BorderSide(color: Colors.transparent),
+                              borderRadius: new BorderRadius.circular(10.0),
+                            ),
+                            //focusedBorder: InputBorder.none,
+                            //enabledBorder: InputBorder.none,
+                            // errorBorder: InputBorder.none,
+                            // border: InputBorder.none,
 
-                          border: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.red, width: 2.0),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          // labelText: "Password",
-                          prefixIcon: Padding(
-                            padding: EdgeInsets.symmetric(
-                                vertical: size.height * 0.012,
-                                horizontal: size.width * 0.02),
-                            child: Image.asset(
-                              'lib/assets/images/home.png',
-                              color: MyTheme.t1Iconcolor,
-                              height: 10,
-                              width: 10,
+                            border: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            // labelText: "Password",
+                            prefixIcon: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: size.height * 0.012,
+                                  horizontal: size.width * 0.02),
+                              child: Image.asset(
+                                'lib/assets/images/lock.png',
+                                //color: MyTheme.t1Iconcolor,
+                                height: 10,
+                                width: 10,
+                              ),
                             ),
                           ),
+                          keyboardType: TextInputType.phone,
+                          //obscureText: true,
+                          controller:
+                              _loginpasswordController.passwordController,
+                          onSaved: (value) {
+                            _loginpasswordController.password = value!;
+                          },
+                          validator: (value) {
+                            return _loginpasswordController
+                                .validPassword(value!);
+                          },
                         ),
-                        keyboardType: TextInputType.streetAddress,
-                        //obscureText: true,
-                        controller: _addtechnicianController.addressController,
-                        onSaved: (value) {
-                          _addtechnicianController.address = value!;
-                        },
-                        validator: (value) {
-                          return _addtechnicianController.validAddress(value!);
-                        },
                       ),
                     ),
                   ),
+
+                  SizedBox(
+                    height: size.height * 0.005,
+                  ),
+                  Align(
+                      alignment: Alignment.centerRight,
+                      child: InkWell(
+                        onTap: () {
+                          Get.to(() => ForgotpasswordphonePage());
+                          print('click');
+                        },
+                        child: Text(
+                          'Forget password?',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: size.width * 0.035,
+                              color: MyTheme.t1Iconcolor),
+                        ),
+                      )),
+
                   SizedBox(
                     height: size.height * 0.03,
                   ),
+
                   ConstrainedBox(
                     constraints: BoxConstraints.tightFor(width: context.width),
                     child: ElevatedButton(
@@ -250,11 +233,11 @@ class AddTechnician extends StatelessWidget {
                         padding: MaterialStateProperty.all(EdgeInsets.all(14)),
                       ),
                       child: Text(
-                        "Add Technician",
+                        "SUBMIT",
                         style: TextStyle(fontSize: 14, color: Colors.white),
                       ),
                       onPressed: () {
-                        _addtechnicianController.checkTechnician();
+                        _loginpasswordController.checkLoginpassword();
                         //Get.to(()=>NavBar());
                         // Navigator.push(
                         //   context,

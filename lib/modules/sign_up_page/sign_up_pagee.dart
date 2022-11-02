@@ -3,21 +3,21 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:roshini/constants/app_theme/app_color.dart';
 import 'package:roshini/controllers/signup_controller/signup_controler.dart';
-import 'package:roshini/modules/home_page/home_page.dart';
+import 'package:roshini/modules/login_password/login_passwords_page.dart';
 
 //class SignUpPage extends GetView<SignUpController> {
 
 const List<String> list = <String>['One', 'Two', 'Three', 'Four'];
 String gender = "male";
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+class SignUpPage extends StatelessWidget {
+  SignUpPage({Key? key}) : super(key: key);
 
-  @override
-  State<SignUpPage> createState() => _SignUpPageState();
-}
-
-class _SignUpPageState extends State<SignUpPage> {
+//   @override
+//   State<SignUpPage> createState() => _SignUpPageState();
+// }
+//
+// class _SignUpPageState extends State<SignUpPage> {
   SignUpController _signUpController = Get.put(SignUpController());
 
   String dropdownValue = list.first;
@@ -404,17 +404,21 @@ class _SignUpPageState extends State<SignUpPage> {
                           width: size.width * 0.4,
                           child: Row(
                             children: [
-                              Radio(
-                                // title: Text("Male"),
-                                value: "male",
-                                groupValue: gender,
-                                onChanged: (value) {
-                                  setState(() {
-                                    gender = value.toString();
-                                  });
-                                },
+                              Obx(
+                                () => Radio(
+                                  // title: Text("Male"),
+                                  value: "Repair",
+                                  groupValue:
+                                      _signUpController.selectedService.value,
+                                  onChanged: (value) {
+                                    _signUpController.onChangeService(value!);
+                                    // setState(() {
+                                    //   gender = value.toString();
+                                    // });
+                                  },
+                                ),
                               ),
-                              Text('Service')
+                              Text('Repair')
                             ],
                           ),
                         ),
@@ -422,15 +426,19 @@ class _SignUpPageState extends State<SignUpPage> {
                           width: size.width * 0.4,
                           child: Row(
                             children: [
-                              Radio(
-                                // title: Text("Male"),
-                                value: "female",
-                                groupValue: gender,
-                                onChanged: (value) {
-                                  setState(() {
-                                    gender = value.toString();
-                                  });
-                                },
+                              Obx(
+                                () => Radio(
+                                  // title: Text("Male"),
+                                  value: "Sale",
+                                  groupValue:
+                                      _signUpController.selectedService.value,
+                                  onChanged: (value) {
+                                    _signUpController.onChangeService(value!);
+                                    // setState(() {
+                                    //   gender = value.toString();
+                                    // });
+                                  },
+                                ),
                               ),
                               Text('Customer')
                             ],
@@ -656,14 +664,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       onPressed: () {
                         _signUpController.checkLogin();
-                        //Get.to(()=>NavBar());
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  //NavBar()
-                                  HomePage()),
-                        );
+                        Get.to(() => LoginPasswordPage());
                       },
                     ),
                   ),

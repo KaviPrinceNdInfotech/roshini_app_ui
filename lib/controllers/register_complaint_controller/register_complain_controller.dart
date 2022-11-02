@@ -7,6 +7,19 @@ class RegisterComplainController extends GetxController {
   var selectedDrowpdown = 'abc';
   List dropdownText = ['abc', 'def', 'ghi'];
 
+  var selectedServicee = ''.obs;
+  var selectedplan = ''.obs;
+
+  onChangeServicee(String servicee) {
+    selectedServicee.value = servicee;
+  }
+
+  var selectedService = ''.obs;
+
+  onChangePlan(String plan) {
+    selectedService.value = plan;
+  }
+
   late TextEditingController nameController,
       mobileController,
       shopnameController,

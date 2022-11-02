@@ -5,17 +5,17 @@ import 'package:roshini/constants/app_theme/app_color.dart';
 
 import '../../controllers/register_complaint_controller/register_complain_controller.dart';
 
-class ComplaintPage extends StatefulWidget {
+class ComplaintPage extends StatelessWidget {
   ComplaintPage({Key? key}) : super(key: key);
 
-  @override
-  State<ComplaintPage> createState() => _ComplaintPageState();
-}
-
-class _ComplaintPageState extends State<ComplaintPage> {
-  List<String> list = <String>['One', 'Two', 'Three', 'Four'];
-
-  String gender = "Product";
+//   @override
+//   State<ComplaintPage> createState() => _ComplaintPageState();
+// }
+//
+// class _ComplaintPageState extends State<ComplaintPage> {
+//   List<String> list = <String>['One', 'Two', 'Three', 'Four'];
+//
+//   String gender = "Product";
 
   RegisterComplainController _registerComplainController =
       Get.put(RegisterComplainController());
@@ -223,15 +223,20 @@ class _ComplaintPageState extends State<ComplaintPage> {
                           ),
                           child: Row(
                             children: [
-                              Radio(
-                                // title: Text("Male"),
-                                value: "Product",
-                                groupValue: gender,
-                                onChanged: (value) {
-                                  setState(() {
-                                    gender = value.toString();
-                                  });
-                                },
+                              Obx(
+                                () => Radio(
+                                  // title: Text("Male"),
+                                  value: "Product",
+                                  groupValue: _registerComplainController
+                                      .selectedServicee.value,
+                                  onChanged: (value) {
+                                    _registerComplainController
+                                        .onChangeServicee(value!);
+                                    // setState(() {
+                                    //   gender = value.toString();
+                                    // });
+                                  },
+                                ),
                               ),
                               Text('Product')
                             ],
@@ -250,15 +255,20 @@ class _ComplaintPageState extends State<ComplaintPage> {
                           ),
                           child: Row(
                             children: [
-                              Radio(
-                                // title: Text("Male"),
-                                value: "Services",
-                                groupValue: gender,
-                                onChanged: (value) {
-                                  setState(() {
-                                    gender = value.toString();
-                                  });
-                                },
+                              Obx(
+                                () => Radio(
+                                  // title: Text("Male"),
+                                  value: "Services",
+                                  groupValue: _registerComplainController
+                                      .selectedServicee.value,
+                                  onChanged: (value) {
+                                    _registerComplainController
+                                        .onChangeServicee(value!);
+                                    // setState(() {
+                                    //   gender = value.toString();
+                                    // });
+                                  },
+                                ),
                               ),
                               Text('Services')
                             ],
@@ -481,15 +491,20 @@ class _ComplaintPageState extends State<ComplaintPage> {
                           ),
                           child: Row(
                             children: [
-                              Radio(
-                                // title: Text("Male"),
-                                value: "AMC",
-                                groupValue: gender,
-                                onChanged: (value) {
-                                  setState(() {
-                                    gender = value.toString();
-                                  });
-                                },
+                              Obx(
+                                () => Radio(
+                                  // title: Text("Male"),
+                                  value: "AMC",
+                                  groupValue: _registerComplainController
+                                      .selectedService.value,
+                                  onChanged: (value) {
+                                    _registerComplainController
+                                        .onChangePlan(value!);
+                                    // setState(() {
+                                    //   gender = value.toString();
+                                    // });
+                                  },
+                                ),
                               ),
                               SizedBox(
                                   width: size.width * 0.17, child: Text('AMC'))
@@ -509,15 +524,16 @@ class _ComplaintPageState extends State<ComplaintPage> {
                           ),
                           child: Row(
                             children: [
-                              Radio(
-                                // title: Text("Male"),
-                                value: "Exchange",
-                                groupValue: gender,
-                                onChanged: (value) {
-                                  setState(() {
-                                    gender = value.toString();
-                                  });
-                                },
+                              Obx(
+                                () => Radio(
+                                    // title: Text("Male"),
+                                    value: "Exchange",
+                                    groupValue: _registerComplainController
+                                        .selectedService.value,
+                                    onChanged: (value) {
+                                      _registerComplainController
+                                          .onChangePlan(value!);
+                                    }),
                               ),
                               SizedBox(
                                   width: size.width * 0.17,
@@ -539,16 +555,17 @@ class _ComplaintPageState extends State<ComplaintPage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Radio(
-                                splashRadius: 20,
-                                // title: Text("Male"),
-                                value: "Warranty",
-                                groupValue: gender,
-                                onChanged: (value) {
-                                  setState(() {
-                                    gender = value.toString();
-                                  });
-                                },
+                              Obx(
+                                () => Radio(
+                                    splashRadius: 20,
+                                    // title: Text("Male"),
+                                    value: "Warranty",
+                                    groupValue: _registerComplainController
+                                        .selectedService.value,
+                                    onChanged: (value) {
+                                      _registerComplainController
+                                          .onChangePlan(value!);
+                                    }),
                               ),
                               SizedBox(
                                   width: size.width * 0.17,
